@@ -1,0 +1,47 @@
+h1{
+	margin:0;
+	line-height: 1em;
+}
+
+#wei{
+	font-size:60px;
+	transform: rotate(-90deg);
+	position:fixed;
+	left:-350px;
+	bottom:320px;
+}
+
+.main{
+	padding:100px 0 0 150px;
+}
+h3{
+	font-size: 16px;
+	margin:0 0 10px 0;
+}
+#exercises{
+	margin: 0 0 30px 0;
+}
+#projects{
+	width:200px;
+}
+a{
+	color:black;
+	margin: 0;
+	font-size: 30px;
+	margin: 0 10px 0 0;
+}
+a:hover{
+	cursor:pointer;
+}
+.horizontalAlign{
+	display: inline-block;
+	float:left;
+}
+.items{
+	height:120px;
+}
+.intervene{
+	border-right: 2px solid black;
+	width:10px;
+	height:10px;
+}
