@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var imageAddr = "wifiSpeed/images/test.jpg" ;
+	var imageAddr = "images/test.jpg" ;
 	var startTime, endTime;
 	var downloadSize = 200000;
 	var download = new Image();
