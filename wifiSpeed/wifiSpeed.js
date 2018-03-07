@@ -16,9 +16,7 @@ $(document).ready(function(){
 	    var bitsLoaded = downloadSize * 8;
 	    var speedBps = (bitsLoaded / duration);
 	    alert("Your connection speed is: \n" + 
-	           speedBps + " bps\n"   + 
-	           speedKbps + " kbps\n" + 
-	           speedMbps + " Mbps\n" );
+	           speedBps + " bps\n");
 	}
 	
 });
