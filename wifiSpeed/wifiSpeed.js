@@ -6,8 +6,7 @@ $(document).ready(function(){
 
 	function showResults() {
 	    var duration = (endTime - startTime) / 1000;
-	    var bitsLoaded = downloadSize * 8;
-	    var speedMps = (bitsLoaded / duration)/1000000;
+	    var speedMps = (downloadSize / duration)/1000000;
 	    console.log("Your connection speed is: \n" + 
 	           speedMps + " Mps\n");
 	}
