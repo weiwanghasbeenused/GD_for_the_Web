@@ -117,4 +117,5 @@ p{
 	color:blue;
 	cursor:pointer;
 	background-color: white;
+	z-index:7;
 }
