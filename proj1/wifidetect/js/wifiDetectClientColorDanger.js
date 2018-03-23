@@ -33,9 +33,9 @@ $(document).ready(function(){
 			
 		}
 		$(".wifiSignals").hover(function(){
-			$(this).find(".info").show();
+			$(this).find(".info").css("opacity","1");
 		},function(){
-			$(this).find(".info").hide();
+			$(this).find(".info").css("opacity","0");
 		});
 
 	});

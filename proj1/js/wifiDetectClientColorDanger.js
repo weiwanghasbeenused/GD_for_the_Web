@@ -6,7 +6,8 @@ $(document).ready(function(){
 		flag = {},
 		fontSize = {},
 		fontColor,
-		position = {},
+		position = {};
+		s = 0,
 		wW = $(window).width(),
 		wH = $(window).height();
 
@@ -16,6 +17,7 @@ $(document).ready(function(){
 	}
 
 	$.get("http://localhost:8081/getwifis", function(data){
+		var position = new Array(data.length);
 		for(i = 0; i<data.length;i++){
 			id[i] = data[i].ssid;
 			signal[i] = -parseInt(data[i].signal_level);
@@ -27,16 +29,31 @@ $(document).ready(function(){
 				"<div id = 'wifi"+i+"' class = 'wifiSignals'><h1 class = 'id "+flag[i]+"'>"+id[i]+"</h1><h2 class = 'info'>security level = "+flag[i]+"</h2></div>");
 			/*$("#wifi"+i).append("<h1 class = 'signal'>"+signal[i]+"</h1>");*/
 			$("#wifi"+i).find("h1").css({"font-size": fontSize[i],"color": fontColor});
-			position[0] = Math.random()*(wW-$("#wifi"+i).width());
-			position[1] = Math.random()*(wH-$("#wifi"+i).height());
-			$("#wifi"+i).css({"top":position[1],"left":position[0]});
+			position[i] = new Array(2);
+			position[i][0] = Math.random()*(wW-$("#wifi"+i).width());
+			position[i][1] = Math.random()*(wH-$("#wifi"+i).height());
+			$("#wifi"+i).css({"top":position[i][1],"left":position[i][0]});
 			
 		}
 		$(".wifiSignals").hover(function(){
-			$(this).find(".info").show();
+			$(this).find(".info").css("opacity","1");
 		},function(){
-			$(this).find(".info").hide();
+			$(this).find(".info").css("opacity","0");
 		});
+		$("#switch").click(function(){
+		if(s == 0){
+			$(".wifiSignals").css({"position":"relative","top":"0","left":"0"});
+			s=1;
+			console.log(s);
+		}else{
+			$(".wifiSignals").css("position","absolute");
+			for(j=0;j<data.length;j++){
+				$("#wifi"+j).css({"top":position[j][1],"left":position[j][0]});
+			}
+			s=0;
+			console.log(s);
+		}
+	});
 
 	});
 	$("#intro").hover(function(){
@@ -48,6 +65,7 @@ $(document).ready(function(){
 			right:"-620"
 		},300);
 	});
+	
 
 	
 

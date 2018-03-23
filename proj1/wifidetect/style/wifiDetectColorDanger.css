@@ -38,7 +38,7 @@ p{
 	padding:3px;
 }
 .info{
-	display: none;
+	opacity:0;
 	font-size: 18px;
 	margin-top: 10px;
 }
@@ -99,10 +99,16 @@ p{
 	width:10px;
 }
 .wifiSignals{
-	position:absolute;
+	position:relative;
+	display: inline-block;
 }
 .wifiSignals:hover{
 	z-index:6;
 	background-color: white;
 	cursor:default;
+}
+#switch{
+	position:fixed;
+	top:10px;
+	left:10px;
 }
