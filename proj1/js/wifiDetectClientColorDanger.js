@@ -8,6 +8,7 @@ $(document).ready(function(){
 		fontColor,
 		position = {};
 		s = 0,
+		s2 = 1,
 		wW = $(window).width(),
 		wH = $(window).height();
 
@@ -56,14 +57,14 @@ $(document).ready(function(){
 	});
 
 	});
-	$("#intro").hover(function(){
-		$(this).stop().animate({
-			right:"0"
-		},300);
-	},function(){
-		$(this).stop().animate({
-			right:"-620"
-		},300);
+	$("#trigger").click(function(){
+		if(s2==0){
+			$("#intro").stop().fadeIn(200);
+			s2 = 1; 
+		}else{
+			$("#intro").hide();
+			s2 = 0;
+		}
 	});
 	
 
