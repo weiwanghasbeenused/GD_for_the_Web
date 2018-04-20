@@ -35,6 +35,7 @@ p{
 	background-color: white;
 	color:blue;
 	z-index: 7;
+	display: none;
 }
 #trigger{
 	position:fixed;

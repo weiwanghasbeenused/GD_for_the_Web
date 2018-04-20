@@ -13,7 +13,7 @@ $(document).ready(function(){
 		wH = $(window).height();
 
 	var root10 = function(a){
-		var b = (Math.pow(a , 4.5)/4000000);
+		var b = (Math.pow(a , 2)/30);
 		return b;
 	}
 
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		var position = new Array(data.length);
 		for(i = 0; i<data.length;i++){
 			id[i] = data[i].ssid;
-			signal[i] = -parseInt(data[i].signal_level);
+			signal[i] = 100+parseInt(data[i].signal_level);
 			address[i] = data[i].mac;
 			flag[i] = data[i].security;
 			fontSize[i] = root10(signal[i]);
