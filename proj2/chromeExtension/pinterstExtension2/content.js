@@ -40,13 +40,14 @@ $(document).ready(function(){
 	var steps = 0;
 	var text = [];
 	for(i=0;i<poetry.length;i++){
-		text[i] = poetry[i][0];
 		console.log(poetry[i][0]);
+		text[i] = poetry[i][0];
+		
 	}
 	console.log(text);
 	for(i=0;i<text.length;i++){
 		$(".pinWrapper:nth-of-type("+(i+1)+")").append("<div class = 'add'><h2>"+text[i]+"</h2></div>");
-		console.log(text[i]);
+		console.log(i+text[i]);
 	}
 	
 });
