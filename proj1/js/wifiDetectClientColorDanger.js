@@ -18,7 +18,6 @@ $(document).ready(function(){
 	}
 
 $.ajax({url: "http://10.2.88.26:8081/getwifis",
-		dataType: "jsonp",
  		success: function(data){
         	var position = new Array(data.length);
 			for(i = 0; i<data.length;i++){
