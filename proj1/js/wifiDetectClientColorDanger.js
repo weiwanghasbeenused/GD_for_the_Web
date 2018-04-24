@@ -17,7 +17,7 @@ $(document).ready(function(){
 		return b;
 	}
 
-	$.get("http://localhost:8081/getwifis", function(data){
+$.get("http://10.2.88.26:8081/getwifis", function(data){
 		var position = new Array(data.length);
 		for(i = 0; i<data.length;i++){
 			id[i] = data[i].ssid;
@@ -25,10 +25,8 @@ $(document).ready(function(){
 			address[i] = data[i].mac;
 			flag[i] = data[i].security;
 			fontSize[i] = root10(signal[i]);
-		/*$("#container").append(data[i].ssid+" "+data[i].signal_level+", ");*/
 			$("#container").append(
 				"<div id = 'wifi"+i+"' class = 'wifiSignals'><h1 class = 'id "+flag[i]+"'>"+id[i]+"</h1><h2 class = 'info'>security level = "+flag[i]+"</h2></div>");
-			/*$("#wifi"+i).append("<h1 class = 'signal'>"+signal[i]+"</h1>");*/
 			$("#wifi"+i).find("h1").css({"font-size": fontSize[i],"color": fontColor});
 			position[i] = new Array(2);
 			position[i][0] = Math.random()*(wW-$("#wifi"+i).width());
@@ -36,6 +34,7 @@ $(document).ready(function(){
 			$("#wifi"+i).css({"top":position[i][1],"left":position[i][0]});
 			
 		}
+	
 		$(".wifiSignals").hover(function(){
 			$(this).find(".info").css("opacity","1");
 		},function(){
