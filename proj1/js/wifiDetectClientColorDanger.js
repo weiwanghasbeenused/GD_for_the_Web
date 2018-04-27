@@ -17,7 +17,7 @@ $(document).ready(function(){
 		return b;
 	}
 
-$.ajax({url: "http://10.2.88.26:8081/getwifis",
+$.ajax({url: "http://10.2.80.116:8081/getwifis",
  		success: function(data){
         	var position = new Array(data.length);
 			for(i = 0; i<data.length;i++){
@@ -35,6 +35,11 @@ $.ajax({url: "http://10.2.88.26:8081/getwifis",
 				$("#wifi"+i).css({"top":position[i][1],"left":position[i][0]});
 			}
     }});
+function hasGetUserMedia() {
+  return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+}
+
+
 
 /*$.get("http://10.2.88.26:8081/getwifis", function(data){
 		var position = new Array(data.length);
