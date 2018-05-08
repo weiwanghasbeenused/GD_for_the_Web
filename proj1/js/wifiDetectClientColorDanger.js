@@ -16,8 +16,10 @@ $(document).ready(function(){
 		var b = (Math.pow(a , 2)/30);
 		return b;
 	}
-
-$.ajax({url: "http://10.2.80.116:8081/getwifis",
+	$.get("http://ipinfo.io", function(response) {
+    alert(response.ip);
+}, "jsonp");
+$.ajax({url: "http://192.168.1.48:8081/getwifis",
  		success: function(data){
         	var position = new Array(data.length);
 			for(i = 0; i<data.length;i++){
