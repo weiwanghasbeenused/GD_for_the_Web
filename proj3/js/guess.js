@@ -35,7 +35,7 @@
         console.log(word);
         var finalString = "<h1>"+word+"</h1>"
         /*$("#list").append(finalString);*/
-        localStorage["data"] = JSON.stringify(finalString);
+        localStorage["data"] = JSON.stringify(finalString || null );
         console.log(localStorage["data"]);
         load();
     }
