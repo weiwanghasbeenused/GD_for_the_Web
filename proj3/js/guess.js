@@ -32,7 +32,7 @@
         }
         
     });
-    var pageExecute = {
+    /*var pageExecute = {
 
     fileContents:"Null",
     pagePrefix:"Null",
@@ -51,7 +51,7 @@
         });
     }
     };
-    pageExecute.init();
+    pageExecute.init();*/
     
 
     function saveWord() {
@@ -77,9 +77,9 @@
             $("#instruction").empty().append("Thank you! One more time?&nbsp;&nbsp;");
 
     }
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         var ss = document.getElementById("submitBtn");
         ss.addEventListener("click", input, false);
-    });
+    });*/
     
 });
