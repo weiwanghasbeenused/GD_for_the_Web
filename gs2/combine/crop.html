@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cropper.js</title>
+  <link rel="stylesheet" href="style/crop/cropper.css">
+  <link rel="stylesheet" href="style/crop/crop.css">
+</head>
+<body>
+
+  <div class="container">    
+    <div id = "imgFrame">
+      <img id="image" src="">
+    </div>
+
+      <button type="button" id="button">Crop</button>
+      <button type="button" id="button2">Get Image</button>
+ 
+    <div id="result"></div>
+  </div>
+
+  <script src="js/crop/cropper.js"></script>
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/cookie/cookie.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var url = "media/ss1.jpg";
+      $('#image').attr('src',url);
+      
+      var image = document.querySelector('#image');
+      var button = document.getElementById('button');
+      var result = document.querySelector('#result');
+      var croppable =false;
+      var cropper = new Cropper(image, {
+          viewMode: 1,
+          ready: function () {
+            croppable = true;
+          }
+      });
+      var p1;
+      var p2 =[];
+      var p3 = [];
+      var end;
+      
+      p1 = Cookies.get('position');
+      end = p1.length-2;
+      p1 = p1.slice(2, end);
+      p2 = p1.split("],[");
+      for(i=0;i<p2.length;i++){
+        p3[i] = p2[i].split(",");
+      }
+      console.log(p3);
+
+      /*for(i =0; i<getPosition.length;i++){
+        if (getPosition){
+          console.log(getPosition.length);
+          console.log(i+"th Point is"+getPosition[i]);
+      }else{
+        console.log("booooo");
+      }
+      console.log(getPosition);
+      }*/
+      var numbers = []; //left eye right eye nose mouth
+      
+      for(i=0;i<4;i++){
+        numbers[i]=[];
+      }
+      //left eye
+      numbers[0][2]=p3[25][0]-p3[23][0]+20;//w
+      numbers[0][3]=p3[26][1]-p3[24][1]+20;//h
+      numbers[0][0]=p3[27][0]-((numbers[0][2])/2)+10;//x
+      numbers[0][1]=p3[27][1]-((numbers[0][3])/2);//y
+      //right eye
+      numbers[1][2]=p3[28][0]-p3[30][0]+20;
+      numbers[1][3]=p3[31][1]-p3[29][1]+20;
+      numbers[1][0]=p3[32][0]-((numbers[1][2])/2)+10;
+      numbers[1][1]=p3[32][1]-((numbers[1][3])/2);
+      //nose
+      numbers[2][2]=p3[39][0]-p3[35][0]+20;
+      numbers[2][3]=p3[37][1]-Math.min(p3[34][1],p3[40][1])+20;
+      numbers[2][0]=p3[62][0]-((numbers[2][2])/2)+10;
+      numbers[2][1]=p3[62][1]-((numbers[2][3])/2);
+      //mouth
+      numbers[3][2]=p3[50][0]-p3[44][0]+20;
+      numbers[3][3]=p3[53][1]-Math.min(p3[46][1],p3[48][1])+20;
+      numbers[3][0]=p3[44][0]-10+10;
+      numbers[3][1]=Math.min(p3[46][1],p3[48][1])-10;
+      
+      $("#button2").click(function(){
+            $("#imgFrame").load("tracingCamera.html #photo",function(){
+                console.log("success!");
+              });
+          });
+      button.onclick = function () {
+          var croppedCanvas;
+          var finalImage;
+
+          if (!croppable) {
+            return;
+          }
+          for(i=0;i<4;i++){
+            var goCropThisCrap = {
+            x: numbers[i][0],
+            y: numbers[i][1],
+            width: numbers[i][2],
+            height: numbers[i][3],
+            rotate: 0,
+            scaleX: 1,
+            scaleY: 1
+            };
+          cropper.setData(goCropThisCrap);
+
+          // Crop
+          croppedCanvas = cropper.getCroppedCanvas();
+          // Round
+          //roundedCanvas = getRoundedCanvas(croppedCanvas);
+
+          // Show
+          finalImage = document.createElement('img');
+          finalImage.src = croppedCanvas.toDataURL();
+          finalImage.id = "photo"+i;
+          //result.innerHTML = '';
+          result.appendChild(finalImage);
+          console.log(cropper.getData());
+          }
+        };
+      });
+
+    //image.src = cropper.getCroppedCanvas().toDataURL('image/jpeg');
+          //result.appendChild(image);
+
+  </script>
+</body>
+</html>

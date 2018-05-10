@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Face Tracker</title>
+		<meta charset="utf-8">
+		<link href="style/tracing/tracing.css" rel="stylesheet">
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/tracing/utils.js"></script>
+		<script src="js/tracing/dat.gui.min.js"></script>
+		<script src="js/tracing/clmtrackr.js"></script>
+		<script src="js/tracing/Stats.js"></script>
+		<script src="js/cookie/cookie.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+		<script src="js/takingPhoto.js"></script>
+		<link rel="stylesheet" type="text/css" href="style/takingPhoto.css" />
+
+		
+	</head>
+	<body>
+		<div id="content">
+			<div class="camera">
+    			<video id="video">Video stream not available.</video>
+    			<button id="startbutton">Take photo</button>
+  			</div>
+  			<canvas id="canvas">
+  			</canvas>
+  			<div class="output">
+  			  <img id="photo" alt="The screen capture will appear in this box.">
+  			</div>
+		</div>
+	</body>
+</html>
