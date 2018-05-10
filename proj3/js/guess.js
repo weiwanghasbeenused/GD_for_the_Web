@@ -6,17 +6,13 @@
         introCounter = 0,
         data = [];//...
         
-    var load = function(){
-        data.push(JSON.parse(localStorage["data"]));
-        $("#list").append(data);
-    }
-    load();
+    
     var reset = function(){
         introCounter = 0;
         $("#intro").hide();
         $("body").removeClass("over");
     }
-    console.log("yaya");
+    console.log("cc");
     $("#introBtn").click(function(){
         console.log("yaya");
         if(introCounter == 0){
@@ -28,7 +24,27 @@
         }
         
     });
+    var pageExecute = {
 
+    fileContents:"Null",
+    pagePrefix:"Null",
+    slides:"Null",
+
+    init: function () {
+        console.log("init!");
+        $.ajax({
+            url: "guess.txt",
+            async: false,
+            success: function (data){
+                pageExecute.fileContents = data;
+                $("#list").append(data);
+                console.log(data)
+            }
+        });
+    }
+    };
+    pageExecute.init();
+    
 
     function saveWord() {
         word = document.getElementById("inputBox").value;
@@ -37,7 +53,6 @@
         /*$("#list").append(finalString);*/
         localStorage["data"] = JSON.stringify(finalString || null );
         console.log(localStorage["data"]);
-        load();
     }
     /*function saveStory() {
         story = document.getElementById("inputBox").value;
@@ -58,4 +73,5 @@
         var ss = document.getElementById("submitBtn");
         ss.addEventListener("click", input, false);
     });
+    
 });
