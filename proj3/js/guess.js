@@ -1,5 +1,13 @@
  $(document).ready(function(){
-   
+    $.ajax({
+            url : "guess.txt",
+            success : function (data) {
+                console.log(data),
+                dataType: "text",
+                $("#list").html(data);
+            }
+        });
+
     var word,
         story,
         task = 0,
