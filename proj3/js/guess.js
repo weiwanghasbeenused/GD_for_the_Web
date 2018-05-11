@@ -1,37 +1,44 @@
  $(document).ready(function(){
     $.ajax({
             url : "guess.txt",
+            dataType: "text",
             success : function (data) {
-                console.log(data),
-                dataType: "text",
-                $("#list").html(data);
+                var pw = "<h1>"+data+"</h1>";
+                $("#list").append(pw);
+                console.log(data);
             }
         });
 
     var word,
         story,
         task = 0,
-        introCounter = 0,
+        introCounter = 1,
         data = [];//...
         
     
-    var reset = function(){
+    var resetIntro = function(){
         introCounter = 0;
-        $("#intro").hide();
-        $("body").removeClass("over");
+        $("#intro").stop().hide();
+        $("#cover").stop().hide();
     }
-    console.log("cc");
     $("#introBtn").click(function(){
-        console.log("yaya");
         if(introCounter == 0){
             introCounter = 1;
-            $("#intro").fadeIn(200);
-            $("body").addClass("over");     
+            console.log(introCounter);
+            $("#intro").stop().fadeIn(200);
+            $("#cover").stop().show();
         }else{
-            reset();
+            resetIntro();
+            console.log(introCounter);
         }
         
     });
+    $("#cover").click(function(){
+        if(introCounter == 1){
+            resetIntro();
+        }
+    });
+
     /*var pageExecute = {
 
     fileContents:"Null",
@@ -52,16 +59,28 @@
     }
     };
     pageExecute.init();*/
-    
+    /*$("#submitBtn").on('submit', function(e){
+        e.preventDefault();
+        var word2 = document.getElementById("inputBox").value;
+        $.ajax({
+            type: "POST",
+            url: "guess.php",
+            data: word2,
+            success: function(data) {
+            $("#instruction").empty().append("Thank you! One more try?&nbsp;&nbsp;");
+            console.log(data+"sent");
+            }
+        });
+    });*/
 
-    function saveWord() {
+    /*function saveWord() {
         word = document.getElementById("inputBox").value;
         console.log(word);
         var finalString = "<h1>"+word+"</h1>"
-        /*$("#list").append(finalString);*/
+        
         localStorage["data"] = JSON.stringify(finalString || null );
         console.log(localStorage["data"]);
-    }
+    }*/
     /*function saveStory() {
         story = document.getElementById("inputBox").value;
         console.log(story);
@@ -70,13 +89,13 @@
         console.log(go);
         $(go).append(word);
     }*/
-    function input(){
+    /*function input(){
             saveWord();
             task = 1;
             $("#inputBox").empty();
             $("#instruction").empty().append("Thank you! One more time?&nbsp;&nbsp;");
 
-    }
+    }*/
     /*$(document).ready(function(){
         var ss = document.getElementById("submitBtn");
         ss.addEventListener("click", input, false);

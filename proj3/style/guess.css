@@ -1,15 +1,15 @@
 body{
 	margin:0;
-	padding-top:200px;
 }
 h1{
-	line-height: 1em;
+	line-height: 1.2em;
 	margin:0;
+	font-size:60px;
 }
 h2{
 	line-height: 1em;
 	margin:0;
-	font-size: 30px;
+	font-size: 20px;
 }
 p{
 	margin:0;
@@ -33,9 +33,9 @@ a:hover{
 	left:20px;
 	z-index: 15;
 }
-#container{
+/*#container{
 	padding:200px 0 0 0;
-}
+}*/
 #introBtn{
 	position:fixed;
 	right:20px;
@@ -51,7 +51,6 @@ a:hover{
 	left:5%;
 	border:2px solid black;
 	z-index:10;
-	display:none;
 }
 #snow{
 	position:absolute;
@@ -69,7 +68,7 @@ a:hover{
 	width:100%;
 }
 #intro p{
-	font-size:30px;
+	font-size:24px;
 	line-height: 1.3em;
 	font-weight: bold;
 	color:white;
@@ -109,4 +108,18 @@ a:hover{
 }
 #inputBox:focus{
 	outline-width: 0;
-};
+}
+
+#list{
+	padding:75px 0 150px 50px;
+}
+#cover{
+	opacity:0;
+	width:100vw;
+	height:100vh;
+	z-index: 9;
+	position:fixed;
+	top:0;
+	left:0;
+}
+
