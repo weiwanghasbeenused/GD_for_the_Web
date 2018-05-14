@@ -12,15 +12,16 @@
   <body>
     <script>
     function test(){
-      FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            console.log('Logged in.');
-          }
-          else {
-            FB.login();
-          }
+      FB.api(
+        '/100026149143098',
+        'GET',
+        {"fields":"email"},
+        function(response) {
+            console.log(response.email);
+        }
       );
     }
+
 
       window.fbAsyncInit = function() {
         FB.init({
