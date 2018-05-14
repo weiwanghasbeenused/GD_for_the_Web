@@ -27,6 +27,22 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
+  $(document).on(
+    'fbload',  //  <---- HERE'S OUR CUSTOM EVENT BEING LISTENED FOR
+    function(){
+        //some code that requires the FB object
+        //such as...
+        FB.getLoginStatus(function(res){
+            if( res.status == "connected" ){
+                FB.api('/me', function(fbUser) {
+                    alert(fbUser.name  + " "  + fbUser.email);
+                });
+            }
+        });
+
+    }
+);
+
     </script>
     <div id="fb-root"></div>
     <div class="fb-login-button" data-scope="email" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
