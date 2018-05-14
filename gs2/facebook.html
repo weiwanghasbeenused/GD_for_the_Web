@@ -27,21 +27,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-  $(document).on(
-    'fbload',  //  <---- HERE'S OUR CUSTOM EVENT BEING LISTENED FOR
-    function(){
-        //some code that requires the FB object
-        //such as...
-        FB.getLoginStatus(function(res){
-            if( res.status == "connected" ){
-                FB.api('/me', function(fbUser) {
-                    alert(fbUser.name  + " "  + fbUser.email);
-                });
-            }
-        });
-
-    }
-);
+  FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('Logged in.');
+  }
+  else {
+    FB.login();
+  }
+});
 
     </script>
     <div id="fb-root"></div>
