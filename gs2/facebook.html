@@ -11,35 +11,14 @@
   </head>
   <body>
     <script>
-    /*function test(){
-      FB.api(
-        '/100026149143098',
-        'GET',
-        {"fields":"email"},
-        function(response) {
-            console.log(response.email);
-        }
-      );
-    }*/
-
-
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '210048093132068',
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v3.0'
-        });
-        //test();
-        FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    console.log('Logged in.');
-  }
-  else {
-    FB.login();
-  }
-});
-      };
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '210048093132068',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.0'
+    });
+  };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -48,8 +27,8 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+</script>
 
-    </script>
     <div id="fb-root"></div>
     <div class="fb-login-button" data-scope="email" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 <!--<script>(function(d, s, id) {
