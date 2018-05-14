@@ -11,6 +11,15 @@
   </head>
   <body>
     <script>
+    function test(){
+      FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('Logged in.');
+  }
+  else {
+    FB.login();
+  }
+    }
       window.fbAsyncInit = function() {
     FB.init({
       appId            : '210048093132068',
@@ -18,6 +27,7 @@
       xfbml            : true,
       version          : 'v3.0'
     });
+    test();
   };
 
   (function(d, s, id){
@@ -26,13 +36,6 @@
      js = d.createElement(s); js.id = id;
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
-     FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    console.log('Logged in.');
-  }
-  else {
-    FB.login();
-  }
    }(document, 'script', 'facebook-jssdk'));
 
   
