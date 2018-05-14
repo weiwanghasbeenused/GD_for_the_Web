@@ -36,14 +36,17 @@
 		<script src="js/emotion/d3.min.js"></script>
 		<script src="js/emotion/emotion_classifier.js"></script>
 		<script src="js/emotion/emotionmodel.js"></script>
+		<div id  = "eyeBall"></div>
 		<div id  = "eye" class = "eye"></div>
+		<div id ="laugh"><p id = "laughP"></p></div>
 		<div id  = "frame"></div>
 		<div id = "askLocation">
-		<div>What are you doing now?</div>
-    		<div class = "option" option = "1">at home</div>
-    		<div class = "option" option = "2">working</div>
-    		<div class = "option" option = "3">chilling</div>
+    		<div class = "option" option = "1"><p>At Home</p></div>
+    		<div class = "option" option = "2"><p>Working</p></div>
+    		<div class = "option" option = "3"><p>Chilling</p></div>
     	</div>
+    	<div id = "mapContainer"><div id="map"></div></div>
+    	
 		<div id="content">
 			<div id="container">
 				<video id="videoel" preload="auto"loop playsinline autoplay>
@@ -53,6 +56,7 @@
 			<div id = "text">
 				<p id = "textP"></p>
 			</div>
+
 			<div id="emotion_container">
 				<div id="emotion_icons">
 					<img class="emotion_icon" id="icon1">
@@ -65,8 +69,23 @@
 			<div id="controls">
 				<input class="btn" type="button" value="" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 			</div>
-			<div id="map"></div>
+			
 			<script>
+			var eW = $("#eye").height();
+			var eW2 = window.innerHeight*7/10;
+			var wW = window.innerWidth;
+			var wH = window.innerHeight;
+			$("#eyeBall").css({
+				"width":eW2,
+				"height":eW2,
+				"left":(wW-eW2)/2,
+				"top":(wH-eW2)/2
+			});
+			
+			console.log(eW);
+			$("#eye").css("width",eW);
+			var eyeL = (wW-eW)/2;
+			$("#eye").css("left",eyeL);
 				var vid = document.getElementById('videoel');
 				var vid_width = $(window).width();
 				var vid_height = 0;
@@ -76,7 +95,7 @@
 				var surpriseCount=0;
 				var nCount = 0;
 				var map, infoWindow;
-      			var pp ;
+      			var pp ="Hi there.";
 
       			
 				
@@ -162,28 +181,27 @@
 					if (navigator.mediaDevices) {
 					navigator.mediaDevices.getUserMedia({video : true}).then(function(mediaStream){
 						gumSuccess(mediaStream);
-						$(".eye").fadeOut(500);
+						$(".eye").fadeIn(500);
+						$("#eyeBall").fadeIn(500);
 					console.log("1!");
 					setTimeout(function() {
 						$("#textP").prepend("There we go.</br></br>");
 					}, 2000);
 					setTimeout(function() {
-						$("#textP").prepend("I feel we are closer.</br></br>");
+						$("#textP").prepend("It would be great if you can stay in the middle.</br></br>");
 					}, 5000);
 					setTimeout(function() {
-						$("#textP").prepend("It would be great if you can stay in this square.</br></br>");
-						$("#frame").fadeIn(1000);
-					}, 8000);
-					setTimeout(function() {
 						$("#textP").prepend("So that I can see you better.</br></br>");
-						$("#frame").fadeIn(1000);
 						drawLoop();
-					}, 13000);
+					}, 11000);
+					setTimeout(function() {
+						$("#textP").prepend("I feel we are closer.</br></br>");
+						
+					}, 15000);
 					setTimeout(function() {
 						$("#textP").prepend("So, what are you doing now?</br></br>");
 						$("#askLocation").fadeIn(1000);
-						drawLoop();
-					}, 17000);
+					}, 20000);
 					}).catch(gumFail);
 
 					
@@ -247,8 +265,15 @@
 						if (er[3].value > 0.6) {
 								funnyCount += 1;
 								console.log(funnyCount);
-								if(funnyCount%30==1){
-									$("#textP").prepend("What's so funny?");
+								if(funnyCount==3){
+									$("#laughP").prepend("Are you laughing?</br></br>");
+									setTimeout(function() {
+										$("#laughP").prepend("Tell me what's so funny.</br></br>");
+									}, 3000);
+									setTimeout(function() {
+										$("#laughP").prepend("Come on. Friends share ANYTHING.</br></br>");
+									}, 7000);
+
 								}
 						}
 						/*for (var i = 0;i < er.length;i++) {
@@ -361,22 +386,21 @@
         			var p = $(this).attr("option"); 
         			
         			if(p == 1){
-        			    pp = "So this is where you live?";
-        			    $("#map").animate({
-        			    	opacity:1
-        			    },1000);
+        				$("#textP").prepend("So this is where you live?</br></br>");
+  
+        			   
         			}else if(p ==2){
-        			  pp = "So this is where you work?";
-        			  $("#map").animate({
-        			    	opacity:1
-        			    },1000);
+        			  $("#textP").prepend("So this is where you work?</br></br>");
+        			  
         			}else if(p ==3){
-        			  pp = "So this is where you usually hangout?";
-        			  $("#map").animate({
+        			  $("#textP").prepend("So this is where you usually hangout?</br></br>");
+        			  
+        			}
+        			$("#askLocation").hide();
+        			infoWindow.setContent(pp);
+        			 $("#map").animate({
         			    	opacity:1
         			    },1000);
-        			}
-        			infoWindow.setContent(pp);
   
       			});
       			function handleLocationError(browserHasGeolocation, infoWindow, pos) {

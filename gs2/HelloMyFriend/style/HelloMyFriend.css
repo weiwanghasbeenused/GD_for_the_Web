@@ -6,18 +6,33 @@ body {
 		background-color: black;
 	}
 p{
-	font-size:20px;
+	font-size:36px;
 	line-height:1.2em;
+	color:white;
 }
-/*.eye{
+.eye{
 	position:fixed;
-	width:100vw;
-	height:100vh;
+
 	z-index:12;
-	filter:blur(20px);
-	background-color: black;
+	left:300px;
+  width: 0;
+  height: 100%;
+  border: solid 7px white;
+  border-radius:  75% 5%;
+  transform: rotate(45deg);
+  display:none;
 }
-*/
+#eyeBall {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border: solid 7px white;
+  border-radius: 50%;
+  display:none;
+  z-index:12;
+
+}
+
 #frame{
 	position:fixed;
 	top:15%;
@@ -28,19 +43,27 @@ p{
 	display:none;
 	z-index:12;
 }
-
+#laugh{
+	position:fixed;
+	height:50%;
+	top:5%;
+	width:25%;
+	left:5%;
+	z-index:20;
+	overflow: hidden;
+	text-align: center;
+}
 #text{
 	position:fixed;
 	height:60%;
 	top:40%;
 	width:30%;
-	left:0;
+	left:35%;
 	z-index:20;
 	overflow: hidden;
+	text-align: center;
 }
 #textP{
-	background-color: black;
-	color:white;
 }
 #overlay {
 				position:fixed;
@@ -77,19 +100,28 @@ p{
 
 }
 
+.option{
+	cursor:pointer;
+}
 #askLocation{
 	position:fixed;
-	width:300px;
-	height:100px;
+	width:30%;
+	height:50%;
 	display: none;
 	z-index: 15;
-	right:10px;
-	top:10px;
+	right:2%;
+	top:40%;
+}
+#mapContainer{
+	position:absolute;
+	width:30%;
+	height:50%;
+	z-index: 14;
+	right:0;
+	top:40%;
 }
 #map{
-	position:fixed;
-	width:300px;
-	height:400px;
-	opacity:0;
-	z-index: 15;
+	width:100%;
+	height:100%;
+	opacity:0;	
 }
