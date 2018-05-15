@@ -1,0 +1,98 @@
+
+			body {
+				margin: 0px;
+			}
+
+			#overlay {
+				position:fixed;
+				top:0;
+				left:0;
+
+			}
+
+#videoel {
+			
+				position:fixed;
+				top:0;
+				left:0;
+				
+				
+			}
+#drawingConuainer{
+	width:100vw;
+	height:100vh;
+}
+.dot {
+  position:fixed;
+  border-radius: 50%;
+  background-blend-mode: multiply;
+
+      z-index: 10;
+}
+.dotAnger {
+  
+  background: radial-gradient(rgba(255,0,0,1) 30%,rgba(255,0,0,0) 70%);
+}
+.dotSurprise {
+  
+  background: radial-gradient(rgba(255,255,0,1) 30%,rgba(255,255,0,0) 70%);
+}
+.dotHappy {
+  
+  background: radial-gradient(rgba(0,255,0,1) 30%,rgba(0,255,0,0) 70%);
+}
+.dotSad {
+  background: radial-gradient(rgba(0,0,255,1) 30%,rgba(0,0,255,0) 70%);
+}
+			#container {
+				position : relative;
+				width : 370px;
+				/*margin : 0px auto;*/
+			}
+
+			h2 {
+				font-weight : 400;
+			}
+
+			.btn {
+				font-family: 'Lato';
+				font-size: 16px;
+			}
+
+			#controls {
+				text-align : center;
+			}
+
+			#emotion_container {
+				opacity:0;
+				width: 600px;
+			}
+
+			#emotion_icons {
+				height: 50px;
+				padding-left: 40px;
+			}
+
+			.emotion_icon {
+				width : 40px;
+				height : 40px;
+				margin-top: 5px;
+				/*margin-left : 13px;*/
+				margin-left : 35px;
+			}
+
+			#emotion_chart, #emotion_icons {
+				margin: 0 auto;
+				width : 400px;
+			}
+
+			#icon1, #icon2, #icon3, #icon4, #icon5, #icon6 {
+				visibility : hidden;
+			}
+
+			/* d3 */
+			.bar {
+				fill : steelblue;
+				fill-opacity : .9;
+			}
+
