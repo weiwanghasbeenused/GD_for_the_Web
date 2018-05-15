@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Facebook2</title>
+    <title>Facebook1</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -37,6 +37,8 @@ function statusChangeCallback(response) {
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
+      console.log(statusChangeCallback(response));
+
     });
   }
 window.fbAsyncInit = function() {
@@ -59,7 +61,6 @@ FB.getLoginStatus(function(response) {
 });
   };
 
-console.log(statusChangeCallback(response));
 </script>
    
 <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
