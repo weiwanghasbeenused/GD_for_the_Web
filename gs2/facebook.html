@@ -13,19 +13,11 @@
     <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId            : '210048093132068',
+      appId            : 'your-app-id',
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v3.0'
     });
-    FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    console.log('Logged in.');
-  }
-  else {
-    FB.login();
-  }
-});
   };
 
   (function(d, s, id){
