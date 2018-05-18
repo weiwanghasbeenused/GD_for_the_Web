@@ -27,13 +27,7 @@
 	height:140%;
 	z-index:20;
 }
-.dot {
-  position:fixed;
-  border-radius: 50%;
-  background-blend-mode: multiply;
 
-      z-index: 10;
-}
 .dotAnger {
   
   background: radial-gradient( 30%,rgba(255,0,0,0) 70%);

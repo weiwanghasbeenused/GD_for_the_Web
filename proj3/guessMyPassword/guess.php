@@ -1,6 +1,6 @@
 <?php
 $file = 'guess.txt';
-$savePass = $_POST["word"]." "." ";
+$savePass = $_POST["word"]." ";
 // Open the file to get existing content
 $current = file_get_contents($file);
 // Append a new person to the file

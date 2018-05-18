@@ -159,7 +159,7 @@
           zoom: 18
         });
         infoWindow = new google.maps.InfoWindow;
-
+        
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -192,7 +192,6 @@
 					}, 5000);
 					setTimeout(function() {
 						$("#textP").prepend("So that I can see you better.</br></br>");
-						drawLoop();
 					}, 11000);
 					setTimeout(function() {
 						$("#textP").prepend("I feel we are closer.</br></br>");
@@ -250,41 +249,7 @@
 					
 				}
 
-				function drawLoop() {
-					requestAnimFrame(drawLoop);
-					overlayCC.clearRect(0, 0, vid_width, vid_height);
-					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
-					if (ctrack.getCurrentPosition()) {
-						ctrack.draw(overlay);
-					}
-					var cp = ctrack.getCurrentParameters();
-
-					var er = ec.meanPredict(cp);
-					if (er) {
-						updateData(er);
-						if (er[3].value > 0.6) {
-								funnyCount += 1;
-								console.log(funnyCount);
-								if(funnyCount==3){
-									$("#laughP").prepend("Are you laughing?</br></br>");
-									setTimeout(function() {
-										$("#laughP").prepend("Tell me what's so funny.</br></br>");
-									}, 3000);
-									setTimeout(function() {
-										$("#laughP").prepend("Come on. Friends share ANYTHING.</br></br>");
-									}, 7000);
-
-								}
-						}
-						/*for (var i = 0;i < er.length;i++) {
-							if (er[i].value > 0.4) {
-								document.getElementById('icon'+(i+1)).style.visibility = 'visible';
-							} else {
-								document.getElementById('icon'+(i+1)).style.visibility = 'hidden';
-							}
-						}*/
-					}
-				}
+				
 
 				delete emotionModel['disgusted'];
 				delete emotionModel['fear'];

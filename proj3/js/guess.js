@@ -1,21 +1,134 @@
  $(document).ready(function(){
+    //var symbols = ["!","@","#","$","%","^","&","*","(",")","_","+","-","=","/","'",'"',"?",":",";","[","]","{","}","|",">","<",",",".","~","`","–","|"];
+    var score = [];
+    var StrI = function(a){
+        var s = 0;
+        var l = a.length;
+        var saveB;/W3Schools/
+        var sgt;
+        var hasS = !Boolean(/^[a-z1-9]+$/i.test(a));
+        var hasU = !Boolean(a === a.toLowerCase());
+        var hasL = !Boolean(a === a.toUpperCase());
+        var hasN = Boolean(/[0-9]/.test(a));
+        console.log("+++++"+a+"has");
+        if(hasS){
+            s = s+5;
+            console.log("S");
+        }
+        if(hasU){
+            s=s+5;
+            console.log("U");
+        }
+        if(hasL){
+            s=s+5;
+            console.log("L");
+        }
+        if(hasN){
+            s=s+5;
+            console.log("N");
+        }
+        if(hasS&&hasU){
+            s=s+5;
+            console.log("S && U");
+        }
+        if(hasS && hasL){
+            s=s+5;
+            console.log("S && L");
+        }
+        if(hasL && hasU){
+            s=s+5;
+            console.log("U && L");
+        }
+        if(hasL && hasN){
+            s=s+5;
+            console.log("U && L");
+        }
+        if(hasU && hasN){
+            s=s+5;
+            console.log("U && L");
+        }
+        if(hasS && hasN){
+            s=s+5;
+            console.log("U && L");
+        }
+        if(hasL && hasU && hasS){
+            s= s+5;
+            console.log("All");
+        }
+        if(hasL && hasU && hasN){
+            s= s+5;
+            console.log("All");
+        }
+        if(hasL && hasN && hasS){
+            s= s+5;
+            console.log("All");
+        }
+        if(hasN && hasU && hasS){
+            s= s+5;
+            console.log("All");
+        }
+        if(hasL && hasU && hasS && hasN){
+            s= s+5;
+            console.log("All");
+        }
+        s= s+l*3;
+        console.log("s="+s);
+        score.push(s);
+        console.log("gets "+s+" points!");
+
+    }
     $.ajax({
             url : "guess.txt",
             dataType: "text",
             success : function (data) {
-                var pw = "<h1>"+data+"</h1>";
-                $("#list").append(pw);
-                console.log(data);
+                var pw = data;
+                pw = pw.split(" ");
+                var pws = [];
+                console.log(pw);
+                for(i=0;i<pw.length;i++){
+                    StrI(pw[i]);
+                    $("#list").append("<div class = 'blur inline'><h1>"+pw[i]+"&nbsp"+"</h1></div>");
+                    var b = "blur("+((score[i]/12)-1)+"px)";
+                    console.log(b);
+                    $(".blur:last-of-type").css("filter",b);
+                }
+                $(".blur").hover(function(){
+                    console.log(blurState);
+
+                    if(blurState ==1){
+                        saveB = $(this).css("filter");
+                        $(this).css("filter","blur(0px)");
+                    }
+                },function(){
+                    if(blurState ==1){
+                        $(this).css("filter",saveB);
+                    }
+                });
             }
-        });
+    });
 
     var word,
         story,
         task = 0,
         introCounter = 1,
-        data = [];//...
-        
-    
+        data = [],
+        blurState = 0;//...
+    $("#glasses").hover(function(){
+        $(this).removeClass("hide");
+    },function(){
+        $(this).addClass("hide");
+    });
+    $("#glasses").click(function(){
+        if(blurState == 0){
+            blurState = 1;
+            $("body").addClass("glasses");
+        }else if(blurState == 1){
+            blurState = 0;
+            $("body").removeClass("glasses");
+        }
+    });
+
+
     var resetIntro = function(){
         introCounter = 0;
         $("#intro").stop().hide();
