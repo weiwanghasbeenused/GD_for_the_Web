@@ -1,0 +1,29 @@
+.subCon div{
+	display: inline-block;
+}
+.me img{
+	width:500px;
+}
+.subCon{
+	margin-bottom: 75px;
+	padding: 0 0 0 100px;
+}
+.me{
+	vertical-align: top;
+}
+.result{
+	width:700px;
+}
+.result img{
+	width:700px;
+	float: left;
+
+}
+.subCon2 {
+	width:700px;
+	margin:0 auto;
+}
+.subCon2 img{
+	width:700px;
+	margin-bottom: 75px;
+}

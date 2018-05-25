@@ -1,0 +1,114 @@
+body{
+	margin:0;
+}
+h1{
+	font-family: 'Space Mono', monospace;
+	line-height: 0.9em;
+	margin:0;
+	font-weight: 700;
+}
+h2{
+	font-family: 'Cousine', monospace;
+	line-height: 0.9em;
+	margin:0;
+	text-align: right;
+}
+p{
+	font-family: 'Cousine', monospace;
+	line-height: 1.5em;
+	margin:0;
+	font-size: 28px;
+	font-weight: 700;
+}
+#intro{
+	width:600px;
+	position:fixed;
+	top:30px;
+	right:-620px;
+	background-color: white;
+	padding:10px;
+	color:blue;
+}
+#trigger{
+	transform:rotate(90deg);
+	position:absolute;
+	left:-68px;
+	top:40px;
+	background-color: white;
+	padding:3px;
+}
+.info{
+	opacity:0;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.WPA+.info,.WPA2+.info,.WPA3+.info{
+	color:blue;
+}
+.none+.info,.WEP+.info{
+	color:red;
+}
+#container{
+}
+#gridMaster{
+	width:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	display: flex;
+}
+.gridsColumns{
+	width:10%;
+	height:100vh;
+	border-left: 1px solid red;
+	display:inline-block;
+
+}
+.gridsColumns:last-of-type{
+	border-right: 1px solid red;
+}
+.WPA3{
+	z-index:5;
+}
+.WPA2{
+	z-index:4;
+}
+.WPA{
+	filter: blur(1px);
+	z-index:3;
+}
+.WPA:hover{
+	filter: blur(0);
+}
+.WEP{
+	filter: blur(5px);
+	z-index:2;
+}
+.WEP:hover{
+	filter: blur(0);
+}
+.none{
+	filter: blur(10px);
+	z-index:1;
+}
+.none:hover{
+	filter: blur(0)
+}
+.dot{
+	height:10px;
+	width:10px;
+}
+.wifiSignals{
+	position:relative;
+	display: inline-block;
+}
+.wifiSignals:hover{
+	z-index:6;
+	background-color: white;
+	cursor:default;
+}
+#switch{
+	position:fixed;
+	top:10px;
+	left:10px;
+}

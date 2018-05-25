@@ -1,0 +1,51 @@
+body{
+	margin:0;
+}
+h1{
+	font-family: 'Cousine', monospace;
+	line-height: 0.9em;
+	margin:0;
+	font-weight: 700;
+}
+
+#container{
+}
+#gridMaster{
+	width:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	display: flex;
+}
+.gridsColumns{
+	width:10%;
+	height:100vh;
+	border-left: 1px solid red;
+	display:inline-block;
+
+}
+.gridsColumns:last-of-type{
+	border-right: 1px solid red;
+}
+/*.WPA3{
+	color:green;
+}
+.WPA2{
+	color:blue;
+}
+.WPA{
+	color:black;
+}
+.WEP{
+	color:orange;
+}
+.none{
+	color:red;
+}*/
+.dot{
+	height:10px;
+	width:10px;
+}
+.wifiSignals{
+	position:fixed;
+}

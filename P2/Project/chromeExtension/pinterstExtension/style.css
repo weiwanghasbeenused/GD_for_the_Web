@@ -1,0 +1,44 @@
+.hide {
+  opacity: 0;
+}
+
+.gradient{
+  background: linear-gradient(135deg, #ff0000 1%,#fff200 20%,#00ffdd 40%,#090df9 60%,#ff0af6 80%,#ff0004 100%);
+  color: white;
+}
+.fade{
+	opacity:0.1;
+}
+.fade:hover{
+	opacity:1;
+}
+.add{
+	width:100%;
+	height:100%;
+	background-color: white;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.add2{
+	width:100%;
+	height:100%;
+	background-color: white;
+	position:absolute;
+	top:0;
+	left:0;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+h1{
+	font-size: 200px;
+	color:black;
+}
+h2{
+	font-size: 80px;
+	color:black;
+
+}

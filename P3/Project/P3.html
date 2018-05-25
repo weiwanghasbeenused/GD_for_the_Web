@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <title>Wei-Hao Wang | Guess My Password</title>
+      <meta content="Graphic Design" name="description">
+
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="guess.css" rel="stylesheet">
+  <script src="jquery-3.3.1.js"></script>
+  <script src = "guess.js"></script>
+</head>
+
+<body>
+<div id = "glasses" style = "cursor:pointer"><img src = "images/glasses.png"></div>
+
+    <div id = "header"><h2>Pass<strike>word</strike>phrase</h2></div>
+
+    <div id = "introBtn">
+      <h2>intro</h2>
+    </div>
+
+    <div id = "intro">
+        <div id = "text">
+            <p>Passwords, <a href = "https://youtu.be/yzGzB-yYKcc">as Edward Snowden suggested,</a> should rather be considered as "Passphrase."</br></br>
+            A strong, safe passphrase should meet following points:<br>
+            1) LONG, thus 2) MEMORABLE to you, and includes 3) A VARIETY OF DIGITS(numbers, punctuations, etc..)</br></br>
+            You can type a sentence or combination of titles or whatever you want. Now, try composing your own passphrase and share it at the input bar.
+          </p>
+        </div>
+
+        <div id = "snow"><img src = "images/snowden-lastweektonight.jpg"></div>
+    </div> 
+
+    <div id = "cover"></div>
+    
+    <form id = "inputForm" action = "guess.php" method = "post">
+      <div id = "instruction" class = "inline">Type a Passphrase:&nbsp;&nbsp;</div>
+      <input  id = "inputBox" type="text" name="word" class = "inline"/><br>
+      <input id = "submitBtn" type="submit">
+    </form>
+  
+  <div id ="list"></div>
+  
+</body>
+</html>
+
+
